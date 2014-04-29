@@ -1,4 +1,4 @@
-RRS
+Room Reservation System
 ===
 
-DCS Room Reservation System
+Department of Computer Science Room Reservation System
