@@ -1,7 +1,0 @@
-Add some notes here.
-
-=========================
-[April 29, 2014 Tuesday] To everyone:
-Someone might need to change the configuration in rrs/settings.py to correctly point to our database, and add their team's apps to the Django project. Login can now be accessed via “http://127.0.0.1/login”. Do note that it will just display a message. No functionality but the message is a start. Happy coding.
-- sfballais123
-=========================
