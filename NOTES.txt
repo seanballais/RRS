@@ -1,0 +1,25 @@
+Add some notes here.
+
+=========================
+[April 29, 2014 Tuesday] 
+To everyone:
+Someone might need to change the configuration in rrs/settings.py to correctly point to our database, and add their team's apps to the Django project. Login can now be accessed via “http://127.0.0.1/login”. Do note that it will just display a message. No functionality but the message is a start. Happy coding.
+- sfballais123
+=========================
+
+=========================
+[April 30, 2014 Wednesday]
+TO everyone:
+Almost fixed the repo. You may type in the command "python manage.py runserver 8080" and visit "http://127.0.0.1/login" to view the temporary login look. Visiting "http://127.0.0.1:8080" will say Page Not Found because the homepage hasn't been defined yet in the URLConf.
+
+To the Layout team:
+You may wanna create the homepage layout now. :)
+Here, grab the link below. Hope it might help you with the layouting. Good luck by the way.
+http://grasshopperpebbles.com/django-python/how-to-set-up-a-home-page-with-django/
+
+To Limher, specifically:
+Limher, if you read the message above and that I gave the layout team a resource to look at, please don't be jealous. I found the resource by accident and thought that the layout team may find some use with link. I'll find some links for your team if ever I find another resourc by accident.
+
+Happy coding. :)
+- sfballais123
+=========================
