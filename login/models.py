@@ -12,5 +12,3 @@ class UserProfile(models.Model):
 	firstname 		= models.TextField()
 	lastname		= models.TextField()
 	middlename		= models.TextField()
-	def __unicode__(self):
-		return self.username
