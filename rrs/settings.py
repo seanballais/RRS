@@ -28,6 +28,9 @@ ALLOWED_HOSTS = []
 
 AUTH_PROFILE_MODULE = 'login.UserProfile'
 
+TEMPLATE_DIRS = (
+    'templates/'
+)
 
 # Application definition
 
