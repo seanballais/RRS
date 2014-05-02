@@ -1,0 +1,29 @@
+{% if user_list %}
+    <ul>
+    {% for u in user_list %}
+        <li>{{ u.username }}</li>
+            {% endfor %}
+    </ul>
+{% else %}
+    <p>No users are available.</p>
+{% endif %}
+
+{% if room_list %}
+    <ul>
+    {% for room in room_list %}
+        <li>{{ room.name }}</li>
+            {% endfor %}
+    </ul>
+{% else %}
+    <p>No rooms are available.</p>
+{% endif %}
+
+{% if equipment_list %}
+    <ul>
+    {% for equipment in equipment_list %}
+        <li>{{ equipment.name }}</li>
+            {% endfor %}
+    </ul>
+{% else %}
+    <p>No equipments are available.</p>
+{% endif %}

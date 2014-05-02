@@ -28,9 +28,7 @@ ALLOWED_HOSTS = []
 
 AUTH_PROFILE_MODULE = 'login.UserProfile'
 
-TEMPLATE_DIRS = (
-    'templates/'
-)
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 # Application definition
 
@@ -42,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'login',
+    'userpanel',
 )
 
 MIDDLEWARE_CLASSES = (

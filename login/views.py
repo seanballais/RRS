@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, render
 from django.template import RequestContext
 from django.contrib.auth import authenticate, login
@@ -15,9 +15,9 @@ def user_login(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                state = "You're successfully logged in!"
+                return HttpResponseRedirect("/userpanel")
             else:
                 state = "Your account is not active, please contact the site admin."
         else:
             state = "Your username and/or password were incorrect."
-    return render_to_response('login.html',{'state': state, 'username': username}, csrfContext) # Extend this code sentence
+    return render_to_response('login/login.html',{'state': state, 'username': username}, csrfContext) # Extend this code sentence
