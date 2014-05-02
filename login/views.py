@@ -3,7 +3,8 @@ from django.shortcuts import render_to_response, render
 from django.template import RequestContext
 from django.contrib.auth import authenticate, login
 
-def login(request):
+
+def user_login(request):
     state = "Please login..."
     username = password = ''
     csrfContext = RequestContext(request)
@@ -21,4 +22,4 @@ def login(request):
         else:
             state = "Your username and/or password were incorrect."
 
-    return render_to_response(csrfContext, 'login.html',{'state': state, 'username': username}) # Extend this code sentence
+    return render_to_response('login.html',{'state': state, 'username': username}, csrfContext) # Extend this code sentence
