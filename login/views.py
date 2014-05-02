@@ -22,4 +22,4 @@ def user_login(request):
         else:
             state = "Your username and/or password were incorrect."
 
-    return render_to_response('login.html',{'state': state, 'username': username}, csrfContext) # Extend this code sentence
+    return render_to_response('login.html', {'state': state, 'username': username}, csrfContext) # Extend this code sentence
