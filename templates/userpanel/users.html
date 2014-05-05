@@ -1,7 +1,7 @@
 {% if user_list %}
     <ul>
     {% for u in user_list %}
-        <li>{{ u.username }}</li>
+        <li>{{ u.username }}                    {{ u.emailadd }}    {{ u.user_privileges }}</li>
             {% endfor %}
     </ul>
 {% else %}
@@ -11,7 +11,7 @@
 {% if room_list %}
     <ul>
     {% for room in room_list %}
-        <li>{{ room.name }}</li>
+        <li>{{ room.name }} {{ room.number }}   {{ room.capacity }}</li>
             {% endfor %}
     </ul>
 {% else %}
@@ -21,7 +21,7 @@
 {% if equipment_list %}
     <ul>
     {% for equipment in equipment_list %}
-        <li>{{ equipment.name }}</li>
+        <li>{{ equipment.name }}    {{ equipment.description }}</li>
             {% endfor %}
     </ul>
 {% else %}

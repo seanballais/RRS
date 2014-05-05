@@ -31,9 +31,8 @@ class EquipmentAdmin(admin.ModelAdmin):
     ]
     list_display = ('name', 'description')
 
-"""
-Uncomment this part if forst time deploy then recomment this again
+
+#Uncomment this part if forst time deploy then recomment this again
 admin.site.register(UserProfile, UserAdmin)
 admin.site.register(Room, RoomAdmin)
 admin.site.register(Equipment, EquipmentAdmin)
-"""
