@@ -4,7 +4,7 @@ from django.template import RequestContext
 from django.contrib.auth import authenticate, login
 
 def user_login(request):
-    state = "Please login..."
+    state = ""
     username = password = ''
     csrfContext = RequestContext(request)
     if request.POST:

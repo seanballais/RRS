@@ -41,7 +41,8 @@ class ReserveInfoAdmin(admin.ModelAdmin):
         ('Status',                             {'fields': ['Status']}), 
     ]
     list_display = ('Eventname','EventDescription', 'StartDate', 'StartTime', 'EndDate', 'EndTime', 'Status')
-class  UserAdmin(admin.ModelAdmin):
+
+class UserAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Username',                           {'fields': ['username']}),
         ('Password',                           {'fields': ['password']}),
@@ -53,14 +54,6 @@ class  UserAdmin(admin.ModelAdmin):
     ]
     list_display = ('username', 'user_privileges', 'firstname', 'middlename', 'lastname' )
     
-
-
-
-
-
-
-
-#Uncomment this part if forst time deploy then recomment this again
 admin.site.register(UserProfile, UserAdmin)
 admin.site.register(Room, RoomAdmin)
 admin.site.register(Equipment, EquipmentAdmin)

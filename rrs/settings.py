@@ -28,6 +28,8 @@ ALLOWED_HOSTS = []
 
 AUTH_PROFILE_MODULE = 'login.UserProfile'
 
+LOGIN_URL = '/login'
+
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 # Application definition
