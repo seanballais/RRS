@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 from django.template import RequestContext
 from login.models import UserProfile
-from userpanel.models import Room, Equipment
+from userpanel.models import Room, Equipment, ReserveInfo
 from django.contrib.auth.models import User
 
 # Create your views here.

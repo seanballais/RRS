@@ -1,12 +1,12 @@
 from django.contrib import admin
-from userpanel.models import Room, Equipment
+from userpanel.models import Room, Equipment, ReserveInfo
 from login.models import UserProfile
 
 # Register your models here.
 
 class UserAdmin(admin.ModelAdmin):
     fieldsets = [
-        ('UserID',                 {'fields': ['userid']}),
+        ('UserID',                 {'fields': ['userID']}),
         ('Username',               {'fields': ['username']}),
         ('Password',               {'fields': ['password']}),
         ('E-mail Address',         {'fields': ['emailadd']}),
@@ -30,9 +30,42 @@ class EquipmentAdmin(admin.ModelAdmin):
         #('Picture',               {'fields': ['picture']}),
     ]
     list_display = ('name', 'description')
+class ReserveInfoAdmin(admin.ModelAdmin):
+    fieldsets = [
+        ('Event Name',                         {'fields': ['Eventname']}),
+        ('Event Description(Optional)',        {'fields': ['EventDescription']}),
+        ('Start Date',                         {'fields': ['StartDate']}),
+        ('Start Time',                         {'fields': ['StartTime']}),
+        ('End Date',                           {'fields': ['EndDate']}),
+        ('End Time',                           {'fields': ['EndTime']}),
+        ('Status',                             {'fields': ['Status']}), 
+    ]
+    list_display = ('Eventname','EventDescription', 'StartDate', 'StartTime', 'EndDate', 'EndTime', 'Status')
+class  UserAdmin(admin.ModelAdmin):
+    fieldsets = [
+        ('Username',                           {'fields': ['username']}),
+        ('Password',                           {'fields': ['password']}),
+        ('Email Address',                      {'fields': ['emailadd']}),
+        ('User Priviliges',                    {'fields': ['user_privileges']}),
+        ('First Name',                         {'fields': ['firstname']}),
+        ('Middle Name',                        {'fields': ['middlename']}),
+        ('last Name',                          {'fields': ['lastname']}),
+    ]
+    list_display = ('username', 'user_privileges', 'firstname', 'middlename', 'lastname' )
+    
+
+
+
+
+
 
 
 #Uncomment this part if forst time deploy then recomment this again
 admin.site.register(UserProfile, UserAdmin)
 admin.site.register(Room, RoomAdmin)
 admin.site.register(Equipment, EquipmentAdmin)
+admin.site.register(ReserveInfo, ReserveInfoAdmin)
+
+
+
+

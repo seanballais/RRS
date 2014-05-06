@@ -9,21 +9,11 @@ class UserProfile(models.Model):
 	username			              = models.CharField(max_length = 256, unique = True)
 	password			              = models.CharField(max_length = 256)
 	emailadd			              = models.CharField(max_length = 256)
-	user_privileges		              = models.TextField()
-	firstname 			              = models.TextField()
-	lastname			              = models.TextField()
-	middlename			              = models.TextField()
+	UserPrivilegesChoices             =((1, 'Superadmin'),(2,'Admin'),(3,'Faculty'),(4,'Student'))
+	user_privileges		              = models.IntegerField('User Privileges',choices=UserPrivilegesChoices)
+
+	firstname 			              = models.CharField(max_length = 256)
+	lastname			              = models.CharField(max_length = 256)
+	middlename			              = models.CharField(max_length = 256)
 	def __unicode__(self):
 		return self.username
-class ReserveInfo(models.Model):
-	EventID							= models.AutoField(primary_key = True)
-	Eventname						= models.CharField(max_length = 256, unique = True)
-	EventDescription				= models.TextField('Event Description     (Optional)', blank=True)
-	StartDate						= models.DateField('Start Date')
- 	StartTime						= models.TimeField('Start Time')
- 	EndDate							= models.DateField('End Date')
- 	EndTime							= models.TimeField('End Time')
- 	StatusChoices                = ((1, 'Available'),(2, 'Pending'),(3, 'Reserved'))
-
-
- 	Status							= models.IntegerField('Status',choices=StatusChoices)
