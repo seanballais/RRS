@@ -15,12 +15,15 @@ class UserProfile(models.Model):
 	middlename			              = models.TextField()
 	def __unicode__(self):
 		return self.username
-class ReserveInfo(models.model):
-	EventID                           = models.AutoField(primary_key = True)
-	Event name                        = models.CharField(max_length = 256, unique = True)
-    Event description (optional)      = models.CharField(max_length = 256, blank = True)
-    Start Date                        = models.DateTimeField()
-    Start Time                        = models.DateTimeField()
-    End Date                          = models.DateTimeField()
-    End Time                          = models.DateTimeField()
-    Status                            = models.TextField()
+class ReserveInfo(models.Model):
+	EventID							= models.AutoField(primary_key = True)
+	Eventname						= models.CharField(max_length = 256, unique = True)
+	EventDescription				= models.TextField('Event Description     (Optional)', blank=True)
+	StartDate						= models.DateField('Start Date')
+ 	StartTime						= models.TimeField('Start Time')
+ 	EndDate							= models.DateField('End Date')
+ 	EndTime							= models.TimeField('End Time')
+ 	StatusChoices                = ((1, 'Available'),(2, 'Pending'),(3, 'Reserved'))
+
+
+ 	Status							= models.IntegerField('Status',choices=StatusChoices)
