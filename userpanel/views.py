@@ -9,15 +9,13 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 
-class UserView(generic.ListView):
-	# For the next sprint, add a function to check if a user is logged in. If not login, redirect user to login
-    context_object_name = 'home_list'    
-    template_name = 'userpanel/users.html'
-    queryset =  ''
+def userpanel(request):
+    if request.user.is_authenticated():
+        user_list = User.objects.all()
+        room_list = Room.objects.all()
+        equipment_list = Equipment.objects.all()
 
-    def get_context_data(self, **kwargs):
-        context = super(UserView, self).get_context_data(**kwargs)
-        context['user_list'] = User.objects.all()
-        context['room_list'] = Room.objects.all()
-        context['equipment_list'] = Equipment.objects.all()
-        return context
+        return render_to_response('userpanel/userpanel.html', {'user_list': user_list, 'room_list': room_list, 'equipment_list': equipment_list})
+
+    else:
+        return HttpResponseRedirect('/login/')

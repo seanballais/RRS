@@ -28,7 +28,9 @@ ALLOWED_HOSTS = []
 
 AUTH_PROFILE_MODULE = 'login.UserProfile'
 
-LOGIN_URL = '/login'
+LOGIN_URL = '/login/'
+
+ANONYMOUS_REDIRECT_URL = '/userpanel/'
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
