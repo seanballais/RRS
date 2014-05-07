@@ -15,12 +15,16 @@ class UserAdmin(admin.ModelAdmin):
     ]
     list_display = ('username', 'password', 'emailadd', 'user_privileges', 'firstname', 'middlename', 'lastname')
 
+class ReserveInline(admin.TabularInline):
+    model = ReserveInfo
+    extra = 3
 class RoomAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Name',                   {'fields': ['name']}),
         ('Number',                 {'fields': ['number']}),
         ('Capacity',               {'fields': ['capacity']}),
     ]
+    inlines = [ReserveInline]
     list_display = ('name', 'number', 'capacity')
 
 class EquipmentAdmin(admin.ModelAdmin):
@@ -30,17 +34,7 @@ class EquipmentAdmin(admin.ModelAdmin):
         #('Picture',               {'fields': ['picture']}),
     ]
     list_display = ('name', 'description')
-class ReserveInfoAdmin(admin.ModelAdmin):
-    fieldsets = [
-        ('Event Name',                         {'fields': ['Eventname']}),
-        ('Event Description(Optional)',        {'fields': ['EventDescription']}),
-        ('Start Date',                         {'fields': ['StartDate']}),
-        ('Start Time',                         {'fields': ['StartTime']}),
-        ('End Date',                           {'fields': ['EndDate']}),
-        ('End Time',                           {'fields': ['EndTime']}),
-        ('Status',                             {'fields': ['Status']}), 
-    ]
-    list_display = ('Eventname','EventDescription', 'StartDate', 'StartTime', 'EndDate', 'EndTime', 'Status')
+
 
 class UserAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -50,14 +44,14 @@ class UserAdmin(admin.ModelAdmin):
         ('User Priviliges',                    {'fields': ['user_privileges']}),
         ('First Name',                         {'fields': ['firstname']}),
         ('Middle Name',                        {'fields': ['middlename']}),
-        ('last Name',                          {'fields': ['lastname']}),
+        ('Last Name',                          {'fields': ['lastname']}),
     ]
     list_display = ('username', 'user_privileges', 'firstname', 'middlename', 'lastname' )
     
 admin.site.register(UserProfile, UserAdmin)
 admin.site.register(Room, RoomAdmin)
 admin.site.register(Equipment, EquipmentAdmin)
-admin.site.register(ReserveInfo, ReserveInfoAdmin)
+
 
 
 
