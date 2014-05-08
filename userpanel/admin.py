@@ -17,6 +17,7 @@ class UserAdmin(admin.ModelAdmin):
 class ReserveInline(admin.TabularInline):
     model = ReserveInfo
     extra = 3
+    
 class RoomAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Name',                   {'fields': ['name']}),

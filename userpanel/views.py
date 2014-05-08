@@ -13,7 +13,7 @@ from django.core.context_processors import csrf
 
 def userpanel(request):
     if request.user.is_authenticated():
-        user_list = User.objects.all()
+        user_list = CustomUser.objects.all()
         room_list = Room.objects.all()
         equipment_list = Equipment.objects.all()
         if request.method == 'POST':
