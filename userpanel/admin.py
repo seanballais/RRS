@@ -6,7 +6,6 @@ from login.models import CustomUser
 
 class UserAdmin(admin.ModelAdmin):
     fieldsets = [
-        ('UserID',                 {'fields': ['userID']}),
         ('Username',               {'fields': ['username']}),
         ('Password',               {'fields': ['password']}),
         ('E-mail Address',         {'fields': ['emailadd']}),

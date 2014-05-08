@@ -1,9 +1,10 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, render
 from django.template import RequestContext
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, get_user_model
 
 def user_login(request):
+    user = get_user_model()
     state = ""
     username = password = ''
     csrfContext = RequestContext(request)
