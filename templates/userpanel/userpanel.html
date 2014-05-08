@@ -35,5 +35,15 @@
         {% else %}
             <p>No equipments are available.</p>
         {% endif %}
+
+        <form action='/userpanel/reserve' method='post'>
+        {% csrf_token %}
+        <ul>
+            {{ form.as_p }}
+        </ul>
+
+        <input type='submit' name='submit' value='Reserve'>
+        </form>
+        
     </body>
 </html>
