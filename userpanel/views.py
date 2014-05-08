@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django.template import RequestContext
-from login.models import UserProfile
+from login.models import CustomUser
 from userpanel.models import Room, Equipment, ReserveInfo
 from django.contrib.auth.models import User
 

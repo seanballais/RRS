@@ -1,6 +1,6 @@
 from django.contrib import admin
 from userpanel.models import Room, Equipment, ReserveInfo
-from login.models import UserProfile
+from login.models import CustomUser
 
 # Register your models here.
 
@@ -11,9 +11,9 @@ class UserAdmin(admin.ModelAdmin):
         ('Password',               {'fields': ['password']}),
         ('E-mail Address',         {'fields': ['emailadd']}),
         ('User Priviliges',        {'fields': ['user_privileges']}),
-        ('Name',                   {'fields': ['firstname', 'middlename', 'lastname'], 'classes': ['collapse']}),
+        ('Name',                   {'fields': ['firstname', 'lastname'], 'classes': ['collapse']}),
     ]
-    list_display = ('username', 'password', 'emailadd', 'user_privileges', 'firstname', 'middlename', 'lastname')
+    list_display = ('username', 'password', 'emailadd', 'user_privileges', 'firstname', 'lastname')
 
 class RoomAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -41,20 +41,8 @@ class ReserveInfoAdmin(admin.ModelAdmin):
         ('Status',                             {'fields': ['Status']}), 
     ]
     list_display = ('Eventname','EventDescription', 'StartDate', 'StartTime', 'EndDate', 'EndTime', 'Status')
-
-class UserAdmin(admin.ModelAdmin):
-    fieldsets = [
-        ('Username',                           {'fields': ['username']}),
-        ('Password',                           {'fields': ['password']}),
-        ('Email Address',                      {'fields': ['emailadd']}),
-        ('User Priviliges',                    {'fields': ['user_privileges']}),
-        ('First Name',                         {'fields': ['firstname']}),
-        ('Middle Name',                        {'fields': ['middlename']}),
-        ('last Name',                          {'fields': ['lastname']}),
-    ]
-    list_display = ('username', 'user_privileges', 'firstname', 'middlename', 'lastname' )
     
-admin.site.register(UserProfile, UserAdmin)
+admin.site.register(CustomUser, UserAdmin)
 admin.site.register(Room, RoomAdmin)
 admin.site.register(Equipment, EquipmentAdmin)
 admin.site.register(ReserveInfo, ReserveInfoAdmin)

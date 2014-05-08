@@ -26,7 +26,7 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-AUTH_PROFILE_MODULE = 'login.UserProfile'
+AUTH_USER_MODEL = 'login.CustomUser'
 
 LOGIN_URL = '/login/'
 
