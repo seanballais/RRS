@@ -1,5 +1,5 @@
 from django.contrib import admin
-from userpanel.models import Room, Equipment, ReserveInfo
+from userpanel.models import Room, Equipment, ReserveInfo, UseInfo
 from login.models import CustomUser
 
 # Register your models here.

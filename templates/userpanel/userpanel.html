@@ -18,8 +18,14 @@
 
         {% if room_list %}
         <ul>
+        <h1>1 - Available, 2 - Pending, 3- Reserved</h1>
         {% for room in room_list %}
-            <li>{{ room.name }} {{ room.number }}   {{ room.capacity }}</li>
+            <li><a href="/userpanel/room/{{ room.pk }}/">{{ room.name }}</a></li>
+            <ul>    
+            {% for event in room.reserveinfo_set.all %}
+                <li><a href="/userpanel/event/{{ event.pk }}/">{{ event.Eventname }} {{ event.Status }}</li>
+            {% endfor %}
+            </ul>
         {% endfor %}
         </ul>
         {% else %}
@@ -29,21 +35,17 @@
         {% if equipment_list %}
         <ul>
         {% for equipment in equipment_list %}
-            <li>{{ equipment.name }}    {{ equipment.description }}</li>
+            <li><a href="/userpanel/equipment/{{ equipment.pk }}/">{{ equipment.name }}    {{ equipment.description }}</li>
+            <ul>    
+            {% for use in equipment.useinfo_set.all %}
+                <li><a href="/userpanel/use/{{ use.pk }}/">{{ use.Eventname }} {{ use.Status }}</li>
+            {% endfor %}
+            </ul>
         {% endfor %}
         </ul>
         {% else %}
             <p>No equipments are available.</p>
         {% endif %}
-
-        <form action='/userpanel/reserve' method='post'>
-        {% csrf_token %}
-        <ul>
-            {{ form.as_p }}
-        </ul>
-
-        <input type='submit' name='submit' value='Reserve'>
-        </form>
         
     </body>
 </html>

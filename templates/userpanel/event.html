@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>{{ event.Eventname }}</title>
+    </head>
+
+    <body>
+        <h1>{{ event.Eventname }} {{ event.Status }}</h1>
+		<form action="/userpanel/event/{{ event.pk }}/" method="post">
+			{% csrf_token %}
+			Status: <input type="number" name="status" value="" size="50" /> <br />
+			<input type='submit' name='reserve' value='Reserve'>
+		</form>
+
+	</body>
+</html>
