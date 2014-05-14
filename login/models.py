@@ -6,26 +6,24 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, User, 
 # Create your models here.
 
 class CustomUserManager(BaseUserManager):
-	""" Custom User Manager to manage our custom user model """
-	""" Custom function to create a user """
+    # Custom User Manage to manage the new user model
+    # Custom function to create a new user
     def create_user(self, username, password, emailadd, user_privileges):
-        if not username: # Check if there is a user
-            raise ValueError('Users must have a username')
-
+    	if not username: # Check if there is a user
+            raise ValueError('User must have username')
         user = self.model(
-        	username = username,
-            emailadd = CustomUserManager.normalize_email(emailadd), # Normalizes the email
+            username = username,
+            emailadd = CustomUserManager.normalize_email(emailadd), # Normalizes the email address
             user_privileges = user_privileges,
             is_staff = True,
             is_admin = True,
             is_superuser = False
-        )
- 
+            )
         user.set_password(password)
         user.save(using = self._db)
         return user
  	
- 	""" Custom function to create a super user """
+ 	# Custom function to create a super user
     def create_superuser(self, username, password, emailadd):
         user = self.create_user(username, password = password, emailadd = emailadd, user_privileges = 1)
 
@@ -35,7 +33,7 @@ class CustomUserManager(BaseUserManager):
         return user
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
-	""" Custom User model created for the project's needs """
+	# Custom User model created for the project's needs
 	objects 						  = CustomUserManager() # Links to the custom user manager
 	id 								  = models.AutoField(primary_key = True)
 	username			              = models.CharField('Username', max_length = 256, unique = True)
