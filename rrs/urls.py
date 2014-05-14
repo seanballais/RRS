@@ -11,6 +11,7 @@ urlpatterns = patterns('',
 	
     #url(r'^login/', include('login.urls', namespace="login")),
     url(r'^login/$', 'login.views.user_login'),
+    url(r'^logout/$', 'userpanel.views.logout_view'),
     url(r'^userpanel/$', 'userpanel.views.userpanel'),
     url(r'^userpanel/room/(?P<room_id>\d+)/$', 'userpanel.views.room', name='room'),
     url(r'^userpanel/equipment/(?P<equipment_id>\d+)/$', 'userpanel.views.equipment', name='equipment'),

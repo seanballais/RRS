@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm
 
 class UserAdmin(admin.ModelAdmin):
-""" This will display the forms that will need input """
+#This will display the forms that will need input """
     fieldsets = [
         ('Username',               {'fields': ['username']}),
         ('Password',               {'fields': ['password']}),

@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, render
 from django.template import RequestContext
-from django.contrib.auth import authenticate, login, get_user_model
+from django.contrib.auth import authenticate, login, get_user_model, logout
 
 def user_login(request):
     """ User Login System Backend """
@@ -26,3 +26,6 @@ def user_login(request):
             else:
                 state = "Your username and/or password were incorrect."
         return render_to_response('login/login.html',{'state': state, 'username': username}, csrfContext) # Extend this code sentence
+def logout_view(request):
+    logout(request)
+    return redirect('/login/')

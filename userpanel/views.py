@@ -6,7 +6,7 @@ from django.template import RequestContext
 from login.models import CustomUser
 from userpanel.models import Room, Equipment, ReserveInfo, UseInfo
 from django.contrib.auth.models import User
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, logout
 from userpanel.forms import ReserveInfoForm, UseInfoForm
 from django.core.context_processors import csrf
 
@@ -146,3 +146,8 @@ def reserve(request, room_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('/userpanel/'))
+
+def logout_view(request):
+    logout(request)
+    
+    return HttpResponseRedirect('/login/')
