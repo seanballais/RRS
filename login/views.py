@@ -4,14 +4,15 @@ from django.template import RequestContext
 from django.contrib.auth import authenticate, login, get_user_model
 
 def user_login(request):
+    """ User Login System Backend """
     user = get_user_model()
     state = ""
     username = password = ''
     csrfContext = RequestContext(request)
-    if request.user.is_authenticated():
+    if request.user.is_authenticated(): # Redirect back to the userpanel if the user is already logged in
         return HttpResponseRedirect('/userpanel/')
     else:
-        if request.POST:
+        if request.POST: # Authenticate if it is an anonymous user
             username = request.POST.get('username')
             password = request.POST.get('password')
 

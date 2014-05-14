@@ -6,13 +6,15 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, User, 
 # Create your models here.
 
 class CustomUserManager(BaseUserManager):
+	""" Custom User Manager to manage our custom user model """
+	""" Custom function to create a user """
     def create_user(self, username, password, emailadd, user_privileges):
-        if not username:
+        if not username: # Check if there is a user
             raise ValueError('Users must have a username')
 
         user = self.model(
         	username = username,
-            emailadd = CustomUserManager.normalize_email(emailadd),
+            emailadd = CustomUserManager.normalize_email(emailadd), # Normalizes the email
             user_privileges = user_privileges,
             is_staff = True,
             is_admin = True,
@@ -22,7 +24,8 @@ class CustomUserManager(BaseUserManager):
         user.set_password(password)
         user.save(using = self._db)
         return user
- 
+ 	
+ 	""" Custom function to create a super user """
     def create_superuser(self, username, password, emailadd):
         user = self.create_user(username, password = password, emailadd = emailadd, user_privileges = 1)
 
@@ -32,7 +35,8 @@ class CustomUserManager(BaseUserManager):
         return user
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
-	objects 						  = CustomUserManager()
+	""" Custom User model created for the project's needs """
+	objects 						  = CustomUserManager() # Links to the custom user manager
 	id 								  = models.AutoField(primary_key = True)
 	username			              = models.CharField('Username', max_length = 256, unique = True)
 	emailadd			              = models.EmailField('Email Address', max_length = 256)
@@ -62,11 +66,12 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 		return True
 
 	def __unicode__(self):
+		# Return username
 		return self.username
 
 	def get_full_name(self):
-		# For this case we return email. Could also be User.first_name User.last_name if you have these fields
-		return self.firstname + self.lastname + self.emailadd
+		# Return name
+		return self.firstname + self.lastname
 
 	def get_short_name(self):
-		return self.emailadd
+		return self.firstname
