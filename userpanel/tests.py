@@ -14,9 +14,25 @@ class UseInfoTest(TestCase):
 		self.assertEqual(useinfo_creation.__unicode__(), useinfo_creation.Eventname)
 
 class RoomTestCase(TestCase):
-    def create_room(self, name="CNN", number="320", capacity="50"):
+    """Test cases for room model"""
+    def create_room(self, name="CSG", number=316, capacity=20):
         return Room.objects.create(name=name, number=number, capacity=capacity)
-
+		
+    def create_room(self, name="Electrial Room", number=102, capacity=150):
+        return Room.objects.create(name=name, number=number, capacity=capacity)
+		
+    def create_room(self, name="Classroom 2", number=0, capacity=0):
+        return Room.objects.create(name=name, number=number, capacity=capacity)	
+		
+    def create_room(self, name="teaching lab 1", number=-5, capacity=10):
+	    return Room.objects.create(name=name, number=number, capacity=capacity)
+		
+    def create_room(self, name="ERDT", number=108, capacity=-15):
+        return Room.objects.create(name=name, number=number, capacity=capacity)	
+		
+    def create_room(self, name="AIER", number=-8, capacity=-12):
+        return Room.objects.create(name=name, number=number, capacity=capacity)	
+		
     def test_room_creation(self):
         room_creation = self.create_room()
         self.assertTrue(isinstance(room_creation, Room))
