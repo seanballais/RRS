@@ -9,14 +9,12 @@
         <h1>{{ room.name }} {{ room.number }}   {{ room.capacity }}</h1>
 		<form action="/userpanel/room/{{ room.pk }}/" method="post">
 			{% csrf_token %}
-			Room: <input type="number" name="id" value="{{room.pk}}" size="50" /> <br />
 			Event: <input type="text" name="name" value="CS 192" size="50" /> <br />
 			Description: <input type="text" name="description" value="Fun" size="50" /> <br />
-			Start Date: <input type="date" name="startdate" value="" size="50" /> <br />
-			End Date: <input type="date" name="enddate" value="" size="50" /> <br />
+			Start Date: <input type="date" name="startdate" value="04-18-14" size="50" /> <br />
+			End Date: <input type="date" name="enddate" value="05-23-14" size="50" /> <br />
 			Start Time: <input type="time" name="starttime" value="14:00" size="50" /> <br />
 			End Time: <input type="time" name="endtime" value="01:00" size="50" /> <br />
-			Status: <input type="number" name="status" value="2" size="50" /> <br />
 			<input type='submit' name='reserve' value='Reserve'>
 		</form>
 

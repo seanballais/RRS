@@ -16,14 +16,14 @@
             <p>No users are available.</p>
         {% endif %}
 
+        <h1>All Rooms</h1>
         {% if room_list %}
         <ul>
-        <h1>1 - Available, 2 - Pending, 3- Reserved</h1>
         {% for room in room_list %}
             <li><a href="/userpanel/room/{{ room.pk }}/">{{ room.name }}</a></li>
             <ul>    
             {% for event in room.reserveinfo_set.all %}
-                <li><a href="/userpanel/event/{{ event.pk }}/">{{ event.Eventname }} {{ event.Status }}</li>
+                <li><a href="/userpanel/event/{{ event.pk }}/">{{ event.Eventname }} {{ event.Status }}</a></li>
             {% endfor %}
             </ul>
         {% endfor %}
@@ -32,13 +32,68 @@
             <p>No rooms are available.</p>
         {% endif %}
 
+        <h1>My Reserved Rooms</h1>
+        {% if room_list %}
+        <ul>
+        {% for room in room_list %}
+            <li><a href="/userpanel/room/{{ room.pk }}/">{{ room.name }}</a></li>
+            <ul>    
+            {% for event in room.reserveinfo_set.all %}
+                {% if event.user == user and event.Status == 'Reserved' %}
+                    <li><a href="/userpanel/event/{{ event.pk }}/">{{ event.Eventname }}</a></li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        {% endfor %}
+        </ul>
+        {% else %}
+            <p>No rooms are available.</p>
+        {% endif %}
+
+        <h1>Other Reserved Rooms</h1>
+        {% if room_list %}
+        <ul>
+        {% for room in room_list %}
+            <li><a href="/userpanel/room/{{ room.pk }}/">{{ room.name }}</a></li>
+            <ul>    
+            {% for event in room.reserveinfo_set.all %}
+                {% if event.user != user and event.Status == 'Reserved' %}
+                    <li><a href="/userpanel/event/{{ event.pk }}/">{{ event.Eventname }}</a></li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        {% endfor %}
+        </ul>
+        {% else %}
+            <p>No rooms are available.</p>
+        {% endif %}
+
+        <h1>My Pending Room Requests</h1>
+        {% if room_list %}
+        <ul>
+        {% for room in room_list %}
+            <li><a href="/userpanel/room/{{ room.pk }}/">{{ room.name }}</a></li>
+            <ul>    
+            {% for event in room.reserveinfo_set.all %}
+                {% if event.user == user and event.Status == 'Pending' %}
+                    <li><a href="/userpanel/event/{{ event.pk }}/">{{ event.Eventname }}</a></li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        {% endfor %}
+        </ul>
+        {% else %}
+            <p>No rooms are available.</p>
+        {% endif %}
+
+        <h1>Equipments</h1>
         {% if equipment_list %}
         <ul>
         {% for equipment in equipment_list %}
-            <li><a href="/userpanel/equipment/{{ equipment.pk }}/">{{ equipment.name }}    {{ equipment.description }}</li>
+            <li><a href="/userpanel/equipment/{{ equipment.pk }}/">{{ equipment.name }}</a></li>
             <ul>    
             {% for use in equipment.useinfo_set.all %}
-                <li><a href="/userpanel/use/{{ use.pk }}/">{{ use.Eventname }} {{ use.Status }}</li>
+                <li><a href="/userpanel/use/{{ use.pk }}/">{{ use.Eventname }}</a></li>
             {% endfor %}
             </ul>
         {% endfor %}
@@ -46,6 +101,61 @@
         {% else %}
             <p>No equipments are available.</p>
         {% endif %}
+
+        <h1>My Reserved Equipments</h1>
+        {% if equipment_list %}
+        <ul>
+        {% for equipment in equipment_list %}
+            <li><a href="/userpanel/equipment/{{ equipment.pk }}/">{{ equipment.name }}</a></li>
+            <ul>    
+            {% for use in equipment.useinfo_set.all %}
+                {% if event.user == user and event.Status == 'Reserved' %}
+                    <li><a href="/userpanel/use/{{ use.pk }}/">{{ use.Eventname }}</a></li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        {% endfor %}
+        </ul>
+        {% else %}
+            <p>No equipments are available.</p>
+        {% endif %}
+
+        <h1>Other Reserved Equipments</h1>
+        {% if equipment_list %}
+        <ul>
+        {% for equipment in equipment_list %}
+            <li><a href="/userpanel/equipment/{{ equipment.pk }}/">{{ equipment.name }}</a></li>
+            <ul>    
+            {% for use in equipment.useinfo_set.all %}
+                {% if event.user != user and event.Status == 'Reserved' %}
+                    <li><a href="/userpanel/use/{{ use.pk }}/">{{ use.Eventname }</a>}</li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        {% endfor %}
+        </ul>
+        {% else %}
+            <p>No equipments are available.</p>
+        {% endif %}
+
+        <h1>My Pending Equipment Requests</h1>
+        {% if equipment_list %}
+        <ul>
+        {% for equipment in equipment_list %}
+            <li><a href="/userpanel/equipment/{{ equipment.pk }}/">{{ equipment.name }}</a> </li>
+            <ul>    
+            {% for use in equipment.useinfo_set.all %}
+                {% if event.user == user and event.Status == 'Pending' %}
+                    <li><a href="/userpanel/use/{{ use.pk }}/">{{ use.Eventname }}</a></li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        {% endfor %}
+        </ul>
+        {% else %}
+            <p>No equipments are available.</p>
+        {% endif %}
+
         <a href="../logout/">Logout</a>
     </body>
 </html>

@@ -17,15 +17,20 @@ class RoomAdmin(admin.ModelAdmin):
     inlines = [ReserveInline]
     list_display = ('name', 'number', 'capacity')
 
+class UseInline(admin.TabularInline):
+    model = UseInfo
+    extra = 1
+
 class EquipmentAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Name',                   {'fields': ['name']}),
         ('Description',            {'fields': ['description']}),
         #('Picture',               {'fields': ['picture']}),
     ]
+    inlines = [UseInline]
     list_display = ('name', 'description')
 
-class ReserveInfoAdmin(admin.ModelAdmin):
+'''class ReserveInfoAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Event Name',                         {'fields': ['Eventname']}),
         ('Event Description(Optional)',        {'fields': ['EventDescription']}),
@@ -34,8 +39,9 @@ class ReserveInfoAdmin(admin.ModelAdmin):
         ('End Date',                           {'fields': ['EndDate']}),
         ('End Time',                           {'fields': ['EndTime']}),
         ('Status',                             {'fields': ['Status']}), 
+        ('User',                               {'fields': ['user']}), 
     ]
-    list_display = ('Eventname','EventDescription', 'StartDate', 'StartTime', 'EndDate', 'EndTime', 'Status')
+    list_display = ('Eventname','EventDescription', 'StartDate', 'StartTime', 'EndDate', 'EndTime', 'Status', 'user')'''
     
 admin.site.register(Room, RoomAdmin)
 admin.site.register(Equipment, EquipmentAdmin)

@@ -19,7 +19,8 @@ def userpanel(request):
         equipment_list = Equipment.objects.all()
         reserveinfo_list = ReserveInfo.objects.all()
         useinfo_list = UseInfo.objects.all()
-        return render_to_response('userpanel/userpanel.html', {'user_list': user_list, 'room_list': room_list, 'equipment_list': equipment_list, 'reserveinfo_list': reserveinfo_list, 'useinfo_list': useinfo_list, })
+        user = request.user
+        return render_to_response('userpanel/userpanel.html', {'user_list': user_list, 'room_list': room_list, 'equipment_list': equipment_list, 'reserveinfo_list': reserveinfo_list, 'useinfo_list': useinfo_list, 'user': user,})
 
     else:
         return HttpResponseRedirect('/login/')
@@ -40,23 +41,23 @@ def room(request, room_id):
             Status=request.POST.get('status')'''
             #user = get_user_model()
             if(request.user.user_privileges == 1 or request.user.user_privileges == 2):
-                r.reserveinfo_set.create(   #room=request.POST.get('room'), 
+                r.reserveinfo_set.create(   user=request.user, 
                                             Eventname=request.POST.get('name'), 
                                             EventDescription=request.POST.get('description'), 
                                             StartDate=request.POST.get('startdate'), 
                                             EndDate=request.POST.get('enddate'), 
                                             StartTime=request.POST.get('starttime'), 
                                             EndTime=request.POST.get('endtime'), 
-                                            Status="3")
+                                            Status="Reserved")
             else:
-                r.reserveinfo_set.create(   #room=request.POST.get('room'), 
+                r.reserveinfo_set.create(   user=request.user, 
                                             Eventname=request.POST.get('name'), 
                                             EventDescription=request.POST.get('description'), 
                                             StartDate=request.POST.get('startdate'), 
                                             EndDate=request.POST.get('enddate'), 
                                             StartTime=request.POST.get('starttime'), 
                                             EndTime=request.POST.get('endtime'), 
-                                            Status="2")
+                                            Status="Pending")
             r.save()
             #form.save()
             return HttpResponseRedirect('/userpanel/')
@@ -70,23 +71,23 @@ def equipment(request, equipment_id):
     csrfContext = RequestContext(request)
     if request.method == 'POST':
             if(request.user.user_privileges == 1 or request.user.user_privileges == 2):
-                e.useinfo_set.create(   #room=request.POST.get('room'), 
-                                            Eventname=request.POST.get('name'), 
-                                            EventDescription=request.POST.get('description'), 
-                                            StartDate=request.POST.get('startdate'), 
-                                            EndDate=request.POST.get('enddate'), 
-                                            StartTime=request.POST.get('starttime'), 
-                                            EndTime=request.POST.get('endtime'), 
-                                            Status="3")
+                e.useinfo_set.create(   user=request.user, 
+                                        Eventname=request.POST.get('name'), 
+                                        EventDescription=request.POST.get('description'), 
+                                        StartDate=request.POST.get('startdate'), 
+                                        EndDate=request.POST.get('enddate'), 
+                                        StartTime=request.POST.get('starttime'), 
+                                        EndTime=request.POST.get('endtime'), 
+                                        Status="Reserved")
             else:
-                e.useinfo_set.create(   #room=request.POST.get('room'), 
-                                            Eventname=request.POST.get('name'), 
-                                            EventDescription=request.POST.get('description'), 
-                                            StartDate=request.POST.get('startdate'), 
-                                            EndDate=request.POST.get('enddate'), 
-                                            StartTime=request.POST.get('starttime'), 
-                                            EndTime=request.POST.get('endtime'), 
-                                            Status="2")
+                e.useinfo_set.create(   user=request.user, 
+                                        Eventname=request.POST.get('name'), 
+                                        EventDescription=request.POST.get('description'), 
+                                        StartDate=request.POST.get('startdate'), 
+                                        EndDate=request.POST.get('enddate'), 
+                                        StartTime=request.POST.get('starttime'), 
+                                        EndTime=request.POST.get('endtime'), 
+                                        Status="Pending")
             e.save()
             #form.save()
             return HttpResponseRedirect('/userpanel/')
@@ -100,7 +101,7 @@ def event(request, reserveinfo_id):
     csrfContext = RequestContext(request)
     if request.method == 'POST':
         if(request.user.user_privileges == 1 or request.user.user_privileges == 2):
-            e.Status=request.POST.get('status')
+            e.Status="Reserved"
         e.save()
         #form.save()
         return HttpResponseRedirect('/userpanel/')
@@ -114,7 +115,7 @@ def use(request, useinfo_id):
     csrfContext = RequestContext(request)
     if request.method == 'POST':
         if(request.user.user_privileges == 1 or request.user.user_privileges == 2):
-            e.Status=request.POST.get('status')
+            e.Status="Reserved"
         e.save()
         #form.save()
         return HttpResponseRedirect('/userpanel/')

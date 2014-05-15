@@ -30,8 +30,8 @@ class ReserveInfo(models.Model):
  	StartTime						= models.TimeField('Start Time')
  	EndDate							= models.DateField('End Date')
  	EndTime							= models.TimeField('End Time')
- 	StatusChoices                   = ((1, 'Available'),(2, 'Pending'),(3, 'Reserved'))
- 	Status							= models.IntegerField('Status',choices=StatusChoices)
+ 	StatusChoices                   = (('Pending', 'Pending'),('Reserved', 'Reserved'))
+ 	Status							= models.CharField('Status',choices=StatusChoices,max_length = 256)
  	
  	def __unicode__(self):  # Python 3: def __str__(self):
 		return self.Eventname
@@ -46,8 +46,8 @@ class UseInfo(models.Model):
  	StartTime						= models.TimeField('Start Time')
  	EndDate							= models.DateField('End Date')
  	EndTime							= models.TimeField('End Time')
- 	StatusChoices                   = ((1, 'Available'),(2, 'Pending'),(3, 'Reserved'))
- 	Status							= models.IntegerField('Status',choices=StatusChoices)
+ 	StatusChoices                   = (('Pending', 'Pending'),('Reserved', 'Reserved'))
+ 	Status							= models.CharField('Status',choices=StatusChoices,max_length = 256	)
  	
  	def __unicode__(self):  # Python 3: def __str__(self):
 		return self.Eventname
