@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from login.models import CustomUser
 
 # Create your models here.
 
@@ -21,6 +22,7 @@ class Equipment(models.Model):
 
 class ReserveInfo(models.Model):
 	room                            = models.ForeignKey(Room)
+	user                            = models.ForeignKey(CustomUser)
 	EventID							= models.AutoField(primary_key = True)
 	Eventname						= models.CharField(max_length = 256, unique = True)
 	EventDescription				= models.TextField('Event Description     (Optional)', blank=True)
@@ -36,6 +38,7 @@ class ReserveInfo(models.Model):
 
 class UseInfo(models.Model):
 	equipment                       = models.ForeignKey(Equipment)
+	user                            = models.ForeignKey(CustomUser)
 	EventID							= models.AutoField(primary_key = True)
 	Eventname						= models.CharField(max_length = 256, unique = True)
 	EventDescription				= models.TextField('Event Description     (Optional)', blank=True)
