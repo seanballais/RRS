@@ -1,0 +1,16 @@
+#bottom {
+	width: 960px;
+	height:200px;
+	margin: 0 auto;
+}
+
+#bottom_wrapper {
+	width: 100%;
+	background-color: black;
+	padding-bottom:40px;
+	opacity: 0.9;
+}
+
+#bottom_wrapper:hover{
+	opacity: 1;
+}

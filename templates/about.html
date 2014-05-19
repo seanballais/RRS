@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load staticfiles %}
+
+	{% block title %}
+		<title>DCS Room Reservation System-About</title>
+	{% endblock %}
+	
+	{% block home %}
+			<li><a href="../login/"><i class="smallicon icon-home"></i> Home</a></li>
+	{% endblock %}
+	{% block about %}
+			<li class="active"><a href="../about/"><i class="smallicon icon-question-sign"></i> About</a></li>
+	{% endblock %}
+	{% block content %}
+	</br></br>
+	<font color="#ffffff">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="jumbotron" id="jumbo">
+						<center>
+							<h2>View Calendar</h2>
+							<a class="btn btn-danger" id="mytooltip" href="#" data-toggle="tooltip" title="View Calendar" data-placement="right">
+							<font size="4">Calendar</font>
+							</a>
+						</center>
+					</div>	
+				</div>
+
+				<div class="col-md-8">
+					<div class="jumbotron" id="jumbo">
+						
+						<div class="sitebody">
+								<h3>The Department Of Computer Science Room Reservation System</h3>
+								<p>The DCS Room Reservation System is an online system designed to make room reservation in the 
+								department easier and more streamlined.</p>
+								<p>Faculty and staff of the department may reserve slots for their
+								classes and events. Administrators can manage classes and requests
+								from the public to reserve rooms.</p>
+
+								<h3>Room Information</h3>
+								<p>Several rooms are available for reservation, provided that slots are still available.</p>
+								<p>If you are a member of the general public, you may view the room reservation availability 
+								<a href="#">here</a>.</p>
+								{% for room in room_list %}
+									<hr/>
+									<h4>{{room.name}}</h4>
+								{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</font>
+	{% endblock %}

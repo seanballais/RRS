@@ -10,7 +10,7 @@ def user_login(request):
     username = password = ''
     csrfContext = RequestContext(request)
     if request.user.is_authenticated(): # Redirect back to the userpanel if the user is already logged in
-        return HttpResponseRedirect('/userpanel/')
+        return HttpResponseRedirect('/userpanel/rooms/')
     else:
         if request.POST: # Authenticate if it is an anonymous user
             username = request.POST.get('username')
@@ -20,7 +20,7 @@ def user_login(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponseRedirect("/userpanel")
+                    return HttpResponseRedirect("/userpanel/rooms/")
                 else:
                     state = "Your account is not active, please contact the site admin."
             else:
@@ -29,3 +29,6 @@ def user_login(request):
 def logout_view(request):
     logout(request)
     return redirect('/login/')
+	
+def home_view(request):
+	return redirect('/login/')

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+<head>
+	
+	{% block title %}
+	{% endblock %}
+	
+	{% block css %}
+		<link href="{% static "css/bootstrap.css" %}"  type="text/css" rel="stylesheet"/>
+		<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+		<link href="{% static "css/style.css"%}" type="text/css" rel="stylesheet">
+	{% endblock %}	
+	
+	{% block javascript %}
+		<script src="{% static "js/jquery.js" %}" type="text/javascript"></script>
+		<script src="{%static "js/bootstrap.js" %}" type="text/javascript"></script>
+	{% endblock %}
+	
+	<meta name="viewport" content="width=1024, initial-scale=1, maximum-scale=1">
+	
+</head>
+
+<body>
+
+	<!--<font color="#336699"> -->
+	<img src="{% static "image/home_header2.png" %}" class="img-responsive shadow-btm" style="position: relative; z-index:10"></img>
+	
+	<!-- fixed navigation bar with drop down menu
+	***************************************************-->
+<div id="wrapper">
+	<div class="navbar navbar-inverse navbar-inner navbar-fixed-top shadow-btm">
+		<div class="container">
+			<div class="navbar-header">
+				<a id="logo" class="pull-left" href="home.html"></a>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					{% block home %}
+						<li><a href="../login/"><i class="smallicon icon-home"></i> Home</a></li>
+					{% endblock %}
+					<li class="divider-vertical"></li>
+					{% block about %}
+						<li><a href="/about/"><i class="smallicon icon-question-sign"></i> About</a></li>
+					{% endblock %}
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+
+	{% block content %}{% endblock %}
+	
+	<div class="push"></div>
+	
+	<!-- Footer and Modal
+	**************************************************-->
+	<div class="container">
+		<div class="row">
+			<div id="bottom_wrapper" class="shadow-top">
+				<div id="bottom">
+						 <div class="col-left half">
+							<h4 align="center">Quick Links</h4>
+							<div class="bottom_box">
+								<ul class="btm_post">
+									<li><a href="http://www.up.edu.ph/">UP System</a></li>
+									<li><a href="http://upd.edu.ph/">UP Diliman</a></li>
+									<li><a href="https://crs.upd.edu.ph/">UP CRS</a></li>
+									<li><a href="http://coe.upd.edu.ph/">UP College of Engineering</a></li>
+									<li><a href="http://dcs.upd.edu.ph/">UP Department of Computer Science</a></li>
+									<li><a href="http://mail.up.edu.ph/">UP Webmail</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-right half">
+							<h4 align="center">Contact Us</h4>
+							<div class="bottom_box">
+								<ul class="btm_post">
+									<li>Velasquez St.<br>University of the Philippines<br>Diliman, Quezon City, Philippines</li>
+									<li>Tel no.: (02)434 3877</li>
+									<li>E-mail address: info@dcs.upd.edu.ph</li>
+								</ul>
+							</div>
+						</div>
+					
+					<div class="cleaner"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div id="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<font color="#ffffff">				
+							<p>Copyright &copy; eKwarto 2014 DCS Room Reservation System. &nbsp; &nbsp; &nbsp; &nbsp;
+							</font>
+							<!--<a href="#">Terms and Conditions</a> -->
+								<a href="/aboutus/">About us</a>
+								&nbsp; &nbsp; &nbsp; &nbsp;
+								<a data-toggle="modal" href="#myModal">Terms and Conditions</a>
+							</p>
+							
+							<!--Modal -->
+							<div class="modal fade" id="myModal" tabinex="-1" role="dialog" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+										<h2>Terms and Conditions</h2>
+										</div>
+										<div class="modal-body">
+											<p>The text will go here...</p>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<!--</font> -->
+</body>
+</html>

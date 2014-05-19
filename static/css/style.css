@@ -1,0 +1,287 @@
+#bottom {
+	width: 100%;
+	min-height:100%;
+	margin: 0 auto;
+}
+
+#bottom_wrapper {
+	width: 100%;
+	background-color: black;
+	padding-bottom:40px;
+}
+
+#bottom .bottom_box { 
+	padding: 0 30px; 
+}
+
+#bottom a { 
+	color: #cccccc;
+}
+
+#bottom h4 {
+	margin-top: 10px;
+	display: block;
+	position: relative;
+	height: 27px;
+	padding-top: 5px;
+	color: #fff;
+	width: 100%;
+	background:url(../image/bottom_header.png) no-repeat; 	
+	background-position: center;
+}
+
+
+#logo{
+	margin-top: 2px;
+	width:210px;
+	height:49px;
+	background:url(../image/nav-logo.png) no-repeat 0 50%;
+}
+
+.cleaner { clear: both }
+
+.btm_post { 
+	margin: 0; 
+	margin-bottom: 25px;
+	padding: 0;
+	list-style: none; 
+	text-align: center;
+	font-size: 2.1vmin;
+}
+
+.btm_post li { 
+	margin: 0 0 10px; 
+	padding: 0 0 0px; 
+	border-bottom: 1px dotted #313030; 
+}
+
+.col-left { 
+	float: left; 
+	margin-left: 10px;
+}
+
+.col-right { 
+	float: right; 
+	margin-right: 10px;
+}
+
+.half { 
+	width: 45%; 
+}
+
+.largeicon{
+	font-size: 50px;
+	padding-left: 35px;
+	padding-right: 35px;
+}
+
+.shadow-btm{
+    -webkit-box-shadow: 0px 3px 5px #000000;
+    box-shadow: 0px 3px 5px #000000;
+}
+
+.shadow-top{
+    -webkit-box-shadow: 0px -3px 5px #000000;
+    box-shadow: 0px -3px 5px #000000;
+}
+
+.line-separator {
+	   margin-left: 20px;
+	   margin-right: 10px;
+	   border-bottom: #b6b6b6 dotted 1px;
+}
+
+.line-separator2 {
+	   margin-left: 10px;
+	   margin-right: 30px;
+	   border-bottom: #b6b6b6 dotted 1px;
+	   padding-bottom: 2px;
+}
+
+.clear {
+	clear: both;
+}
+
+.user-left{
+	border-radius: 11px;
+	margin-left:0px;
+	margin-top:80px;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+	z-index: 2;
+	width: 80%;
+	color: #ffffff;
+	background-color:#860101;
+	position: relative;
+	opacity:0.6;
+	text-align: center;
+	font-size: 12px;
+
+}
+
+.user-left:hover{
+	opacity:1;
+}
+
+.user-header{
+	text-align: center;
+	margin-top: 2px;
+	margin-bottom:0;
+	font-family: Helvetica;
+	font-weight: bold;
+	color: #e8c900;
+}
+
+.nav-left{
+	border-radius: 11px;
+	margin-left:0px;
+	z-index: 2;
+	width: 80%;
+	color: #ffffff;
+	background-color:#860101;
+	margin-top:20px;
+	margin-bottom: 20px;
+	position: relative;
+	opacity:0.6;
+
+}
+
+.nav-left:hover{
+	opacity:1;
+}
+
+.nl-container
+{
+	margin-top:5px;
+}
+
+.nl-header{
+	text-align: center;
+	margin-bottom:0;
+	font-family: Helvetica;
+}
+
+.nl-actions{
+	margin-left:25px;
+	font-size: 15px;
+}
+
+#action-link a{
+	color: #a1a1a1;
+	font-family: Helvetica;
+}
+
+#action-link a:hover{
+	color: #ffffff;
+	background-color: rgba(255, 0, 0, 0.4); 
+	opacity: 0.8;
+	padding: 1px;
+	display: inline-block;
+	width: 85%;
+	position: absolute;
+}
+
+#action-link a:active{
+	color: #e8c900;
+	background: none;
+	outline: 0;
+}
+
+#logout-link a{
+	color: #a1a1a1;
+	font-family: Helvetica;
+}
+
+#logout-link a:hover{
+	color: #ffffff;
+}
+
+
+#rc-list{
+	font-size: 15px;
+	position: center;
+}
+
+#rc-list li a{
+	color: #e8c900;
+}
+.r-container{
+	padding: 0px;
+	margin-top: 80px;
+	margin-bottom: 30px;
+	margin-right: 13px;
+	z-index: 2;
+	color: #ffffff;
+	background-color:#000000;
+	border-radius: 11px;
+	opacity:0.6;
+}
+
+.r-container2{
+	padding: 0px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	margin-right: 13px;
+	z-index: 2;
+	color: #ffffff;
+	background-color:#000000;
+	border-radius: 11px;
+	opacity:0.6;
+}
+
+.r-container2:hover,
+.r-container:hover{
+	opacity: 1;
+}
+
+#re-link a{
+	color: #ffffff;
+	font-family: Helvetica;
+	text-align: center;
+	font-size: 2.3vmin;
+}
+
+#re-link a:hover{
+	color: #e8c900;
+}
+
+#event-link a{
+	color: #8a8a8a;
+	font-size: 2.1vmin;
+}
+
+#event-link a:hover{
+	color: #800202;
+}
+
+.rc-header{
+	text-align: center;
+	margin-bottom:0;
+	font-family: Helvetica;
+	font-style: bold;
+	background-color: #860101; 
+	background-size: cover;
+	border-radius: 11px 11px 0px 0px; 
+	positon: relative;
+	opacity: 0.8;
+	padding: 2px;
+}
+
+.rc-header-h3{
+	text-align: center;
+	margin-bottom:0;
+	font-family: Helvetica;
+	font-style: bold;
+}
+
+.three_columns ul{
+    -webkit-column-count: 3;
+       -moz-column-count: 3;
+            column-count: 3; /*3 in those rules is just placeholder -- can be anything*/
+}
+
+.contenthover { padding:20px 20px 10px 20px; }
+.contenthover, .contenthover h3, contenthover a { color:#fff; }
+.contenthover h3, .contenthover p { margin:0 0 10px 0; line-height:1.4em; padding:0; }
+.contenthover a.mybutton { display:block; float:left; padding:5px 10px; background:#3c9632; color:#fff; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
+.contenthover a.mybutton:hover { background:#34742d }

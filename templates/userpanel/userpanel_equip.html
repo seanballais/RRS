@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load staticfiles %}
+	
+	
+	{% block title %}
+		<title>DCS Room Reservation System-User Panel/Equipments</title>
+	{% endblock %}
+	
+	{% block home %}
+		<li class="active"><a href="../rooms/"><i class="smallicon icon-home"></i> Home</a></li>
+	{% endblock %}
+	
+	{% block content %}
+		<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="user-left">
+						<div class="nl-container">
+							</br>
+							<p>Logged in as:</p>
+							<h3 class='user-header'>{{ user.username }}</h3>
+							<p class='nl-actions'>						
+								{% if user.user_privileges == 1 %}
+										<h5>Super Administrator</h5>
+								{% elif user.user_privileges == 2 %}
+										<h5>Administrator</h5>
+								{% elif user.user_privileges == 3 %}
+										<h5>Faculty</h5>
+								{% elif user.user_privileges == 4 %}
+										<h5>Student</h5>
+								{% endif %}
+								</br>
+								<p><a class="btn btn-small btn-success" href="/logout/">Logout</a></p>
+							</p>
+						</div>
+				</div>
+				<div class="nav-left">
+						<div class="nl-container">
+							</br>
+							<h3 class='nl-header'>User Actions</h3>
+								</br>
+								<p class='nl-actions'>
+									<div id="action-link">
+										<li class="active line-separator"><a href="/userpanel/rooms/">View Rooms</a></li>
+										<li class="line-separator"><a href="#">View Equipments</a></li>
+										<li class="line-separator"><a href="#">User Information</a></li>
+										{% if user.user_privileges == 1 %}
+											<li class="line-separator"><a href="#">Manage Accounts</a></li>
+										{% endif %}
+										{% if user.user_privileges == 1 or user.user_privileges == 2 %}
+											<li class="line-separator"><a href="#">Manage Resources</a></li>
+										{% endif %}
+										<li class="line-separator"><a href="../../logout/">Logout</a></li>
+									</div>
+								</br>
+								</p>
+						</div>
+				</div>
+			</div>
+			<div class="col-md-9">
+				
+				<div class="row">
+					<div class="shadow-btm r-container">
+						<div class='nl-container'>
+									<h1 id="rc" class='rc-header'>All Equipments</h1>
+									<p id='rc-list'>
+										{% if equipment_list %}
+										<ul id="limheight">
+										{% for equipment in equipment_list %}
+											<div id="re-link">
+												<li><a href="/userpanel/equipment/{{ equipment.pk }}/">{{ equipment.name }}</a></li>
+											</div>
+										{% endfor %}
+										</ul>
+										{% else %}
+											<p align="center">No equipments are available.</p>
+										{% endif %}
+									</br>
+									</p>
+							</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="shadow-btm r-container2">
+						<div class='nl-container'>
+									<h1 class='rc-header'>My Approved Equipment Reservation Requests</h1>
+									<p id="rc-list">
+										{% if equipment_list %}
+									
+											<ul id="leftlist">
+											{% for equipment in my_reserved %}
+												<div id="re-link">
+													<li><a href="/userpanel/equipment/{{ equipment.pk }}/">{{ equipment.name }}</a></li>
+												</div>
+												<ul>    
+												{% for use in equipment.useinfo_set.all %}
+													{% if use.Status == 'Reserved' %}
+														<div id="event-link">
+															<li><a href="/userpanel/use/{{ use.pk }}/">{{ use.Eventname }}</a></li>
+														</div>
+													{% endif %}
+												{% endfor %}
+												</ul>
+											{% endfor %}
+											</ul>
+										
+										{% else %}
+											<p>No equipments are available.</p>
+										{% endif %}
+
+									</br>
+									</p>
+							</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="shadow-btm r-container2">
+						<div class='nl-container'>
+									<h1 class='rc-header'>All Approved Equipment Reservation Requests</h1>
+									<p id="rc-list">
+										{% if equipment_list %}
+										
+											<ul id="leftlist">
+											{% for equipment in all_reserved %}
+												<div id="re-link">	
+													<li><a href="/userpanel/equipment/{{ equipment.pk }}/">{{ equipment.name }}</a></li>
+												</div>
+												<ul>    
+												{% for use in equipment.useinfo_set.all %}
+													{% if use.Status == 'Reserved' %}
+														<div id="event-link">
+															<li><a href="/userpanel/use/{{ use.pk }}/">{{ use.Eventname }}</a></li>
+														</div>
+													{% endif %}
+												{% endfor %}
+												</ul>
+											{% endfor %}
+											</ul>
+										
+										{% else %}
+											<p>No equipments are available.</p>
+										{% endif %}
+
+									</br>
+									</p>
+							</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="shadow-btm r-container2">
+						<div class='nl-container'>
+									<h1 class='rc-header'>My Pending Equipment Reservation Requests</h1>
+									<p id="rc-list">
+										{% if equipment_list %}
+										
+											<ul id="leftlist">
+											{% for equipment in user_pending %}
+												
+													<div id="re-link">
+														<li><a href="/userpanel/equipment/{{ equipment.pk }}/">{{ equipment.name }}</a> </li>
+													</div>
+													<ul>    
+													{% for use in equipment.useinfo_set.all %}
+														{% if use.Status == 'Pending' %}
+															<div id="event-link">
+																<li><a href="/userpanel/use/{{ use.pk }}/">{{ use.Eventname }}</a></li>
+															</div>
+														{% endif %}
+													{% endfor %}
+											
+												</ul>
+											{% endfor %}
+											</ul>
+									
+										{% else %}
+											<p>No equipments are available.</p>
+										{% endif %}
+
+									</br>
+									</p>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="clear"></div>
+	{% endblock %}

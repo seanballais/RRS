@@ -17,6 +17,7 @@ import datetime
 class RoomTestCase(TestCase):
     """Test cases for room model"""
     def create_room(self, name="CSG", number=306, capacity=20):
+        """Set-up Room instance"""
         return Room.objects.create(name=name, number=number, capacity=capacity)
 		
     '''def create_room(self, name="Electrial Room", number=102, capacity=150):
@@ -35,6 +36,7 @@ class RoomTestCase(TestCase):
         return Room.objects.create(name=name, number=number, capacity=capacity)'''
 		
     def test_room_creation(self):
+        """Test if CSG room is instantiated"""
         room_creation = self.create_room()
         self.assertTrue(isinstance(room_creation, Room))
         self.assertEqual(room_creation.__unicode__(), 'CSG')
@@ -44,7 +46,7 @@ class RoomTestCase(TestCase):
 class EquipmentTestCase(TestCase):
     """Test if each Equipment is instantiated"""
     def setUp(self):
-        """Set-up Equipment instances"""
+        """Set-up Equipment instance"""
         Equipment.objects.create(name="iMac", description='Expensive')
         
     def test_equipment_has_imac(self):

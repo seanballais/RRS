@@ -1,15 +1,8 @@
-<!DOCTYPE html>
 {% extends "base.html" %}
 {% load staticfiles %}
 	
-	{% block title %}
-		<title>DCS Room Reservation System-Home Page</title>
-	{% endblock %}
-	
-	{% block home %}
-		<li class="active"><a href="../login/"><i class="smallicon icon-home"></i> Home</a></li>
-	{% endblock %}
-					
+	<!-- Carousel
+	***********************************-->
 	{% block content %}
 		<div id="myCarousel" class="carousel slide shadow-btm" style="position: relative; z-index:1">
 			<ol class="carousel-indicators">
@@ -20,7 +13,7 @@
 			<div class="carousel-inner">
 			
 				<div class="item active">
-					<img src="{% static 'image/scene1.jpg' %}" alt="Image 01" />
+					<img src="{% static 'image/scene1.jpg' %}" />
 					<div class="container">
 						<div class="carousel-caption">
 							<font color="#ffffff">
@@ -32,7 +25,7 @@
 				</div>
 				
 				<div class="item">
-					<img src="{% static 'image/scene2.jpg' %}" alt="Image 02" />
+					<img src="{% static 'image/scene2.jpg' %}"/>
 					<div class="container">
 						<div class="carousel-caption">
 							<font color="#ffffff">
@@ -71,7 +64,7 @@
 				<div class="col-md-4">
 					<div class="jumbotron">
 						<h2 align="center">Please sign in</h2>
-						<font color="orange"><strong>{{	state	}}</strong></font>
+						<font color="#f7941d"><strong>{{	state	}}</strong></font>
 						<form id="login_form" method="post" action="/login/" class="form-horizontal">
 							{% csrf_token %}
 							<div class="form-group">

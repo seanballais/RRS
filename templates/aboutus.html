@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load staticfiles %}
+	
+	{% block title %}
+		<title>DCS Room Reservation System-About Us</title>
+	{% endblock %}
+	
+	{% block javascript %}
+		{{ block.super }}
+		<script src="{% static 'js/contentHover.js' %}"></script>
+			
+		<script type="text/javascript">
+			$('document').ready(function(){
+			
+				$('#mytooltip').tooltip();
+				
+				$('#myPopOver').popover();
+				
+				$('#d').contenthover({
+					effect:'slide',
+					slide_speed:300,
+					overlay_background:'#000',
+					overlay_opacity:0.8
+				});
+
+				$('#d1').contenthover({
+					effect:'slide',
+					slide_speed:300,
+					overlay_background:'#000',
+					overlay_opacity:0.8
+				});
+				
+				$('#d2').contenthover({
+					overlay_width:270,
+					overlay_height:180,
+					effect:'slide',
+					slide_direction:'right',
+					overlay_x_position:'right',
+					overlay_y_position:'center',
+					overlay_background:'#000',
+					overlay_opacity:0.8
+				});
+				
+				$('#d3').contenthover({
+					effect:'slide',
+					slide_speed:300,
+					overlay_background:'#000',
+					overlay_opacity:0.8
+				});
+				
+				$('#d4').contenthover({
+					overlay_width:270,
+					overlay_height:180,
+					effect:'slide',
+					slide_direction:'right',
+					overlay_x_position:'right',
+					overlay_y_position:'center',
+					overlay_background:'#000',
+					overlay_opacity:0.8
+				});
+
+				$('#d5').contenthover({
+					effect:'slide',
+					slide_speed:300,
+					overlay_background:'#000',
+					overlay_opacity:0.8
+				});
+				
+				$('#d6').contenthover({
+					overlay_width:270,
+					overlay_height:180,
+					effect:'slide',
+					slide_direction:'right',
+					overlay_x_position:'right',
+					overlay_y_position:'center',
+					overlay_background:'#000',
+					overlay_opacity:0.8
+				});
+				
+				$('#d7').contenthover({
+					effect:'slide',
+					slide_speed:300,
+					overlay_background:'#000',
+					overlay_opacity:0.8
+				});
+				
+				$('#d8').contenthover({
+					overlay_width:270,
+					overlay_height:180,
+					effect:'slide',
+					slide_direction:'right',
+					overlay_x_position:'right',
+					overlay_y_position:'center',
+					overlay_background:'#000',
+					overlay_opacity:0.8
+				});
+				
+			});
+		
+		</script>
+	{% endblock %}
+	
+	{% block content %}
+		<br/>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="jumbotron">
+								<!--<img class="img-thumbnail" src="image/bluecoffee.jpg"/> -->
+								<center><h1>Meet the Team</h1></center>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Content Hover
+			**************************************************-->
+			<div class="container">
+			<hr/>
+				<div class="row">
+					<div class="col-md-12">
+						<center>
+						<img id="d" src="{% static 'image/keith.jpg' %}"/>
+						<div class="contenthover">
+							<h3>Keith</h3>
+							<p>CS 192 Student. Scrum Master. Sexiest.</p>
+						</div>
+					</center>
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-md-3">
+						<img id="d1" src="{% static 'image/ken.jpg' %}"/>
+						<div class="contenthover">
+							<h3>Kenver</h3>
+							<p>CS 192 Student. Sexy.</p>
+						</div>
+					</div>
+					
+					<div class="col-md-3">
+						<img id="d2" src="{% static 'image/derp.jpg' %}"/>
+						<div class="contenthover">
+							
+							<h3>&nbsp; &nbsp; &nbsp; &nbsp;Niks</h3>
+							<p>&nbsp; &nbsp; &nbsp; &nbsp;CS 192 Student. Macho papa.</p>
+							
+						</div>
+					</div>
+					
+					<div class="col-md-3">
+						<img id="d3" src="{% static 'image/anna.jpg' %}"/>
+						<div class="contenthover">
+							<h3>Anna</h3>
+							<p>CS 192 Student. Sexy.</p>
+						</div>
+					</div>
+					
+					<div class="col-md-3">
+						<img id="d4" src="{% static 'image/diocton.jpg' %}"/>
+						<div class="contenthover">
+							
+							<h3>&nbsp; &nbsp; &nbsp; &nbsp;Diocton</h3>
+							<p>&nbsp; &nbsp; &nbsp; &nbsp;CS 192 Student.</p>
+							
+						</div>
+					</div>
+					
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-md-3">
+						<img id="d5" src="{% static 'image/limher.jpg' %}"/>
+						<div class="contenthover">
+							<h3>Dennis</h3>
+							<p>CS 192 Summer Intern.</p>
+						</div>
+					</div>
+					
+					<div class="col-md-3">
+						<img id="d6" src="{% static 'image/migi.jpg' %}"/>
+						<div class="contenthover">
+							
+							<h3>&nbsp; &nbsp; &nbsp; &nbsp;Migi</h3>
+							<p>&nbsp; &nbsp; &nbsp; &nbsp;CS 192 Summer Intern.</p>
+							
+						</div>
+					</div>
+					
+					<div class="col-md-3">
+						<img id="d7" src="{% static 'image/raymart.jpg' %}"/>
+						<div class="contenthover">
+							<h3>Ray Mart</h3>
+							<p>CS 192 Summer Intern.</p>
+						</div>
+					</div>
+					
+					<div class="col-md-3">
+						<img id="d8" src="{% static 'image/sean.jpg' %}"/>
+						<div class="contenthover">
+							
+							<h3>&nbsp; &nbsp; &nbsp; &nbsp;Sean</h3>
+							<p>&nbsp; &nbsp; &nbsp; &nbsp;CS 192 Summer Intern.</p>
+						
+						</div>
+					</div>
+					
+				</div>
+			</div>
+	{% endblock %}	
